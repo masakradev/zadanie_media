@@ -95,7 +95,7 @@ class PublisherList(Resource):
         models = PublisherModels()
 
         parser = reqparse.RequestParser()
-        parser.add_argument("name", required=True, type=int)
+        parser.add_argument("name", required=True, type=str)
 
         args = parser.parse_args()
 
@@ -132,7 +132,7 @@ class Publisher(Resource):
         models = PublisherModels()
 
         parser = reqparse.RequestParser()
-        parser.add_argument("name", required=True, type=int)
+        parser.add_argument("name", required=True, type=str)
 
         args = parser.parse_args()
 
@@ -167,7 +167,7 @@ class AuthorList(Resource):
         parser.add_argument("firstname", required=True, type=str)
         parser.add_argument("lastname", required=True, type=str)
         parser.add_argument("nickname", required=True, type=str)
-        parser.add_argument("birthday", required=True, type=str)
+        parser.add_argument("birthdate", required=True, type=str)
 
         args = parser.parse_args()
 

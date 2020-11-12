@@ -10,24 +10,31 @@ services:
       api_app:
         aliases:
             - web
-        ipv4_address: 172.16.222.2
+        ipv4_address: 172.16.223.2
   db:
     image: mariadb
     restart: always
+    container_name: media_db_1
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
+      - ./docker:/docker
     networks:
       api_app:
         aliases:
             - database
-        ipv4_address: 172.16.222.3
+        ipv4_address: 172.16.223.3
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+    networks:
+      api_app:
+        aliases:
+            - database
+        ipv4_address: 172.16.223.4
 
 volumes:
   db_data:
@@ -38,4 +45,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.16.222.0/24
+        - subnet: 172.16.223.0/24

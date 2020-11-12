@@ -19,7 +19,7 @@ class PublisherModels:
 
         return JSONResponse.success({'publishers': response})
 
-    def create_new_publishers(self, args: object) -> dict:
+    def create_publishers(self, args: object) -> dict:
         publisher = Publisher(args['name'])
         self.session.add(publisher)
 

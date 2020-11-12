@@ -31,7 +31,7 @@ class AuthorsModels:
         return JSONResponse.success({'authors': response})
 
     def create_authors(self, args: object) -> dict:
-        if not self.check_data(args['author_birthdate']):
+        if not self.check_data(args['birthdate']):
             return JSONResponse.error(
                 "author_birthdate: shoud by in format YYYY/MM/DD (for example 2000-02-23")
 
