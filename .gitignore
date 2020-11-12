@@ -1,0 +1,6 @@
+venv
+.idea
+*.py[cod]
+__pycache__/
+*$py.class
+*.crt
